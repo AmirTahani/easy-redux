@@ -1,5 +1,5 @@
 import { takeEvery, put } from 'redux-saga/effects';
-import create from './createStore';
+import createStore from './createStore';
 import { connect, Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/es/integration/react'
 
