@@ -31,7 +31,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 import { takeEvery, put } from 'redux-saga/effects';
-import create from './createStore';
+import storeCreator from './createStore';
 import { connect, Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/es/integration/react';
 import axios from 'axios';
@@ -203,4 +203,4 @@ var ReduxGenerator = function ReduxGenerator() {
 
 export { ReduxGenerator as default };
 var generator = new ReduxGenerator();
-export { PersistGate, Provider, connect, generator, create };
+export { PersistGate, Provider, connect, generator, storeCreator };
