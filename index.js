@@ -201,6 +201,5 @@ var ReduxGenerator = function ReduxGenerator() {
   };
 };
 
-export { ReduxGenerator as default };
 var generator = new ReduxGenerator();
 export { PersistGate, Provider, connect, generator, storeCreator };
