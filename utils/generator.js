@@ -5,7 +5,7 @@ import { PersistGate } from 'redux-persist/es/integration/react'
 
 import axios from 'axios';
 
-export default class ReduxGenerator {
+class ReduxGenerator {
     reducers = [];
     sagas = [];
     whiteList = [];
