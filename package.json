@@ -1,6 +1,6 @@
 {
   "name": "@amirtahani/easy-redux",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Use Redux as easy as it possible",
   "main": "utils/app.js",
   "repository": {
