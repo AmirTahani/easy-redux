@@ -1,4 +1,4 @@
-import { persistStore } from 'redux-persist';
+import { persistStore, persistReducer } from 'redux-persist';
 import { all } from 'redux-saga/effects';
 import { applyMiddleware, createStore, combineReducers } from 'redux';
 import createSagaMiddleware from 'redux-saga';
@@ -10,10 +10,17 @@ export default function create(generator) {
     const middleWares = [
         sagaMiddleware
     ];
+    const whitelist = generator.getWhiteList();
 
-    const reducers = combineReducers(generator.getReducers());
+    const persistConfig = {
+        key: 'root',
+        whitelist,
+        storage
+
+    };
+
+    const reducers = persistReducer(persistConfig, combineReducers(generator.getReducers()));
     const sagas = generateSagas(generator.getSagas());
-    const whiteList = generator.getWhiteList();
 
 
     const store = createStore(
@@ -21,10 +28,7 @@ export default function create(generator) {
         applyMiddleware(...middleWares),
     );
 
-    const persistor = persistStore(store, {
-        whitelist: whiteList,
-        storage: storage
-    });
+    const persistor = persistStore(store);
 
     store.rootTask = sagaMiddleware.run(sagas);
 
