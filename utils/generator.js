@@ -1,11 +1,9 @@
 import { takeEvery, put } from 'redux-saga/effects';
-import storeCreator from './createStore';
-import { connect, Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/es/integration/react'
+
 
 import axios from 'axios';
 
-class ReduxGenerator {
+export default class ReduxGenerator {
     reducers = [];
     sagas = [];
     whiteList = [];
@@ -147,5 +145,4 @@ class ReduxGenerator {
     };
 }
 
-const generator = new ReduxGenerator();
-export { PersistGate, Provider, connect, generator, storeCreator };
+

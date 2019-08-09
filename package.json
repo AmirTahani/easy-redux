@@ -1,6 +1,6 @@
 {
   "name": "easy-redux-saga",
-  "version": "1.0.9",
+  "version": "1.0.11",
   "description": "Use Redux as easy as it possible",
   "keywords": [
     "redux",
@@ -19,7 +19,7 @@
     "url": "https://github.com/AmirTahani/easy-redux"
   },
   "scripts": {
-    "build": "babel utils --out-file index.js"
+    "build": "babel utils --out-dir build"
   },
   "dependencies": {
     "axios": "^0.19.0",
