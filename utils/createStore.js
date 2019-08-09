@@ -21,14 +21,14 @@ export default function create(generator) {
         applyMiddleware(...middleWares),
     );
 
-    persistStore(store, {
+    const persistor = persistStore(store, {
         whitelist: whiteList,
         storage: storage
     });
 
     store.rootTask = sagaMiddleware.run(sagas);
 
-    return store;
+    return { store, persistor };
 }
 
 

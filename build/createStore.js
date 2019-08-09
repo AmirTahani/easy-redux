@@ -10,12 +10,15 @@ export default function create(generator) {
   var sagas = generateSagas(generator.getSagas());
   var whiteList = generator.getWhiteList();
   var store = createStore(reducers, applyMiddleware.apply(void 0, middleWares));
-  persistStore(store, {
+  var persistor = persistStore(store, {
     whitelist: whiteList,
     storage: storage
   });
   store.rootTask = sagaMiddleware.run(sagas);
-  return store;
+  return {
+    store: store,
+    persistor: persistor
+  };
 }
 
 function generateSagas(sagas) {
