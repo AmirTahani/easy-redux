@@ -5,7 +5,7 @@
   "main": "utils/app.js",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/AmirTahani/easy-redux"
   },
   "scripts": {
     "build": "babel utils --out-file index.js"
