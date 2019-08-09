@@ -1,7 +1,18 @@
 {
-  "name": "@amirtahani/easy-redux",
+  "name": "easy-redux-saga",
   "version": "1.0.3",
   "description": "Use Redux as easy as it possible",
+  "keywords": [
+    "redux",
+    "react-redux",
+    "redux-saga",
+    "easy-redux",
+    "easy-saga",
+    "easy-react-redux",
+    "easy-react-redux-saga",
+    "easy-redux-saga",
+    "easy-react-saga"
+  ],
   "main": "utils/app.js",
   "repository": {
     "type": "git",
