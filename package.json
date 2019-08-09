@@ -1,6 +1,6 @@
 {
   "name": "easy-redux-saga",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "Use Redux as easy as it possible",
   "keywords": [
     "redux",
