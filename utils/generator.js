@@ -9,12 +9,35 @@ export default class ReduxGenerator {
     reducers = [];
     sagas = [];
     whiteList = [];
+    actionCreators = {};
 
     createModule = ({ type, method, url, cache }) => {
         this.generateReducer(type);
         this.generateSaga(type, method, url);
+        this.generateActionCreator(type);
         this.setCache(type, cache);
     };
+
+    generateActionCreator = (type) => {
+        const actionCreator = () => {
+            return {
+                type
+            };
+        };
+        this.setActionCreator(type, actionCreator);
+    };
+
+    setActionCreator = (type, actionCreator) => {
+        this.actionCreators = {
+            ...this.actionCreators,
+            [type]: actionCreator
+        };
+    };
+
+    getActionCreator = (type) => {
+        return this.actionCreators[type];
+    };
+
 
     setCache = (type, cache) => {
         if (cache) {
