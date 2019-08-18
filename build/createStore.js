@@ -30,8 +30,12 @@ function create(generator) {
     whitelist: whitelist,
     storage: _storage2["default"]
   };
+  console.log(generator.getReducers(), 'this is generator.getReducers()');
   var reducers = (0, _reduxPersist.persistReducer)(persistConfig, (0, _redux.combineReducers)(generator.getReducers()));
+  console.log(reducers, 'this reeducers inside persist reduceer');
+  console.log(generator.getSagas(), 'thi sis sagas generator');
   var sagas = generateSagas(generator.getSagas());
+  console.log(sagas, 'sagas we need');
   var store = (0, _redux.createStore)(reducers, _redux.applyMiddleware.apply(void 0, middleWares));
   var persistor = (0, _reduxPersist.persistStore)(store);
   store.rootTask = sagaMiddleware.run(sagas);
