@@ -37,7 +37,7 @@ export default class ReduxGenerator {
     setActionCreator = (type, actionCreator) => {
         this.actionCreators = {
             ...this.actionCreators,
-            [type]: actionCreator
+            [`${type}_LOAD`]: actionCreator
         };
     };
 

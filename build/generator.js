@@ -63,7 +63,7 @@ var ReduxGenerator = function ReduxGenerator() {
   };
 
   this.setActionCreator = function (type, actionCreator) {
-    _this.actionCreators = _objectSpread({}, _this.actionCreators, _defineProperty({}, type, actionCreator));
+    _this.actionCreators = _objectSpread({}, _this.actionCreators, _defineProperty({}, "".concat(type, "_LOAD"), actionCreator));
   };
 
   this.getActionCreator = function (type) {

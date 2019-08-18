@@ -18,12 +18,8 @@ export default function create(generator) {
         storage
     };
 
-    console.log(generator.getReducers(), 'this is generator.getReducers()');
     const reducers = persistReducer(persistConfig, combineReducers(generator.getReducers()));
-    console.log(reducers, 'this reeducers inside persist reduceer');
-    console.log(generator.getSagas(), 'thi sis sagas generator');
     const sagas = generateSagas(generator.getSagas());
-    console.log(sagas, 'sagas we need');
 
 
     const store = createStore(
