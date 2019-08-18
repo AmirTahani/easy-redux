@@ -190,6 +190,13 @@ var ReduxGenerator = function ReduxGenerator() {
     _this.sagas = [].concat(_toConsumableArray(_this.sagas), [saga]);
     return _this;
   };
+
+  if (!!ReduxGenerator.instance) {
+    return ReduxGenerator.instance;
+  }
+
+  ReduxGenerator.instance = this;
+  return this;
 };
 
 exports["default"] = ReduxGenerator;

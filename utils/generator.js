@@ -9,6 +9,15 @@ export default class ReduxGenerator {
     whiteList = [];
     actionCreators = {};
 
+    constructor() {
+        if (!!ReduxGenerator.instance) {
+            return ReduxGenerator.instance;
+        }
+        ReduxGenerator.instance = this;
+
+        return this;
+    }
+
     createModule = ({ type, method, url, cache }) => {
         this.generateReducer(type);
         this.generateSaga(type, method, url);
