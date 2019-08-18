@@ -1,6 +1,6 @@
 {
   "name": "easy-redux-saga",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "description": "Use Redux as easy as it possible",
   "keywords": [
     "redux",
@@ -37,7 +37,8 @@
     "@babel/plugin-syntax-dynamic-import": "7.2.0",
     "@babel/preset-env": "7.4.5",
     "@babel/register": "7.4.4",
-    "babel-plugin-dynamic-import-node": "2.3.0"
+    "babel-plugin-dynamic-import-node": "2.3.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2"
   },
   "babel": {
     "presets": [
@@ -49,9 +50,13 @@
       ]
     ],
     "plugins": [
+      [
+        "transform-es2015-modules-commonjs",
+        {
+          "allowTopLevelThis": true
+        }
+      ],
       "@babel/plugin-proposal-object-rest-spread",
-      "@babel/plugin-syntax-dynamic-import",
-      "dynamic-import-node",
       [
         "@babel/plugin-proposal-class-properties",
         {

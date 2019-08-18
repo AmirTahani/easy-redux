@@ -1,3 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = undefined;
+
+var _effects = require("redux-saga/effects");
+
+var _axios = require("axios");
+
+var _axios2 = _interopRequireDefault(_axios);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
@@ -11,9 +26,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-import { takeEvery, put } from 'redux-saga/effects';
-import axios from 'axios';
 
 var ReduxGenerator = function ReduxGenerator() {
   var _this = this;
@@ -120,12 +132,12 @@ var ReduxGenerator = function ReduxGenerator() {
               case 0:
                 _context.prev = 0;
                 _context.next = 3;
-                return axios[method](url);
+                return _axios2["default"][method](url);
 
               case 3:
                 response = _context.sent;
                 _context.next = 6;
-                return put({
+                return (0, _effects.put)({
                   type: "".concat(type, "_LOAD_SUCCESS"),
                   data: response.data
                 });
@@ -138,7 +150,7 @@ var ReduxGenerator = function ReduxGenerator() {
                 _context.prev = 8;
                 _context.t0 = _context["catch"](0);
                 _context.next = 12;
-                return put({
+                return (0, _effects.put)({
                   type: "".concat(type, "_LOAD_FAILURE"),
                   error: _context.t0
                 });
@@ -158,7 +170,7 @@ var ReduxGenerator = function ReduxGenerator() {
   };
 
   this.generateSaga = function (type, method, url) {
-    var saga = takeEvery("".concat(type, "_LOAD"), _this.generateWatcher(type, method, url));
+    var saga = (0, _effects.takeEvery)("".concat(type, "_LOAD"), _this.generateWatcher(type, method, url));
 
     _this.setSaga(saga);
 
@@ -180,4 +192,4 @@ var ReduxGenerator = function ReduxGenerator() {
   };
 };
 
-export { ReduxGenerator as default };
+exports["default"] = ReduxGenerator;
